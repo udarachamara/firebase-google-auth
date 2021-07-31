@@ -1,0 +1,23 @@
+{
+  "name": "google",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "dependencies": {
+    "firebase": "^8.8.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/udarachamara/firebase-google-auth.git"
+  },
+  "author": "udara chamara",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/udarachamara/firebase-google-auth/issues"
+  },
+  "homepage": "https://github.com/udarachamara/firebase-google-auth#readme"
+}
