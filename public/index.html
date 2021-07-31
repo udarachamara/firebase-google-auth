@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Google Auth</title>
@@ -23,11 +24,51 @@
     -->
     <script defer src="/__/firebase/init.js?useEmulator=true"></script>
 
-  </head>
-  <body>
-    
-    <h1>Google auth</h1>
-    
+</head>
 
-  </body>
+<body>
+
+    <h1>Google auth</h1>
+    <button onclick="googleSignin()">Google Signin</button>
+    <button onclick="googleSignout()">Google Signout</button>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            let app = firebase.app();
+            console.log(app);
+
+            var provider = app.auth.GoogleAuthProvider();
+
+            function googleSignin() {
+                app.auth()
+
+                    .signInWithPopup(provider).then(function (result) {
+                        var token = result.credential.accessToken;
+                        var user = result.user;
+
+                        console.log(token)
+                        console.log(user)
+                    }).catch(function (error) {
+                        var errorCode = error.code;
+                        var errorMessage = error.message;
+
+                        console.log(error.code)
+                        console.log(error.message)
+                    });
+            }
+
+            function googleSignout() {
+                app.auth().signOut()
+
+                    .then(function () {
+                        console.log('Signout Succesfull')
+                    }, function (error) {
+                        console.log('Signout Failed')
+                    });
+            }
+        });
+    </script>
+
+</body>
+
 </html>
