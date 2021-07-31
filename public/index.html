@@ -33,38 +33,40 @@
     <button onclick="googleSignout()">Google Signout</button>
 
     <script>
-        let app = firebase.app();
-        console.log(app);
-        
-        var provider = app.auth.GoogleAuthProvider();
+        document.addEventListener('DOMContentLoaded', function () {
+            let app = firebase.app();
+            console.log(app);
 
-        function googleSignin() {
-            app.auth()
+            var provider = app.auth.GoogleAuthProvider();
 
-                .signInWithPopup(provider).then(function (result) {
-                    var token = result.credential.accessToken;
-                    var user = result.user;
+            function googleSignin() {
+                app.auth()
 
-                    console.log(token)
-                    console.log(user)
-                }).catch(function (error) {
-                    var errorCode = error.code;
-                    var errorMessage = error.message;
+                    .signInWithPopup(provider).then(function (result) {
+                        var token = result.credential.accessToken;
+                        var user = result.user;
 
-                    console.log(error.code)
-                    console.log(error.message)
-                });
-        }
+                        console.log(token)
+                        console.log(user)
+                    }).catch(function (error) {
+                        var errorCode = error.code;
+                        var errorMessage = error.message;
 
-        function googleSignout() {
-            app.auth().signOut()
+                        console.log(error.code)
+                        console.log(error.message)
+                    });
+            }
 
-                .then(function () {
-                    console.log('Signout Succesfull')
-                }, function (error) {
-                    console.log('Signout Failed')
-                });
-        }
+            function googleSignout() {
+                app.auth().signOut()
+
+                    .then(function () {
+                        console.log('Signout Succesfull')
+                    }, function (error) {
+                        console.log('Signout Failed')
+                    });
+            }
+        });
     </script>
 
 </body>
