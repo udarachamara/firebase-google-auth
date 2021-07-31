@@ -33,7 +33,7 @@
     <button onclick="googleSignout()">Google Signout</button>
 
     <script>
-        var provider = new firebase.auth.GoogleAuthProvider();
+        var provider = firebase.auth.GoogleAuthProvider();
 
         function googleSignin() {
             firebase.auth()
