@@ -33,10 +33,13 @@
     <button onclick="googleSignout()">Google Signout</button>
 
     <script>
-        var provider = firebase.auth.GoogleAuthProvider();
+        let app = firebase.app();
+        console.log(app);
+        
+        var provider = app.auth.GoogleAuthProvider();
 
         function googleSignin() {
-            firebase.auth()
+            app.auth()
 
                 .signInWithPopup(provider).then(function (result) {
                     var token = result.credential.accessToken;
@@ -54,7 +57,7 @@
         }
 
         function googleSignout() {
-            firebase.auth().signOut()
+            app.auth().signOut()
 
                 .then(function () {
                     console.log('Signout Succesfull')
